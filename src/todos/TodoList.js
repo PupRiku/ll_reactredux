@@ -8,17 +8,17 @@ import './TodoList.css';
 
 const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, isLoading, startLoadingTodos }) => {
     useEffect(() => {
-        startLoadingTodos
+        startLoadingTodos();
     }, []);
-
+    
     const loadingMessage = <div>Loading todos...</div>;
     const content = (
         <div className="list-wrapper">
             <NewTodoForm />
-            {todos.map(todo => <TodoListItem 
-                todo={todo} 
-                onRemovePressed={onRemovePressed} 
-                onCompletedPressed={onCompletedPressed} />)}
+            {todos.map(todo => <TodoListItem
+                todo={todo}
+                onRemovePressed={onRemovePressed}
+                onCompletedPressed={onCompletedPressed}/>)}
         </div>
     );
     return isLoading ? loadingMessage : content;
